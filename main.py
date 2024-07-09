@@ -153,6 +153,7 @@ if __name__ == "__main__":
                 main()
             else:
                 print("Bot is currently turned off")
+                logging.info("Bot is currently turned off")
                 time.sleep(60)
         except Exception as e:
             print(f"Main loop exception: {str(e)}")
