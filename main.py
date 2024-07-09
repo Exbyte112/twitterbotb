@@ -23,6 +23,7 @@ bot_power_state = mongoDB["KronosTwikitPowerState"]
 
 def get_power_state() -> str:
     power_state = bot_power_state.find()[0]
+    print(f"Power state: {power_state['power_state']}")
     return power_state["power_state"]
 
 def get_secondary_accounts() -> Dict[str, Dict[str, str]]:
@@ -147,9 +148,16 @@ def main():
         print(f"Unexpected error: {str(e)}")
 
 if __name__ == "__main__":
+    print("Starting bot")
     while True:
         try:
-            state = get_power_state()
+            try:
+                state = get_power_state()
+            except Exception as e:
+                print(f"Error getting power state: {str(e)}")
+                logging.info(f"Error getting power state: {str(e)}")
+                time.sleep(60)
+                continue
             if state == "on":
                 main()
             else:
