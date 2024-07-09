@@ -5,6 +5,7 @@ import json
 from typing import NoReturn, Dict, List
 import pymongo
 from twikit import Client, Tweet, TwitterException
+import logging
 
 # Load environment variables
 from dotenv import load_dotenv
