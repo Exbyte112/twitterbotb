@@ -156,4 +156,4 @@ if __name__ == "__main__":
                 time.sleep(60)
         except Exception as e:
             print(f"Main loop exception: {str(e)}")
-        time.sleep(60)  # Wait for a minute before retrying
+        time.sleep(60) 
