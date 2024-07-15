@@ -129,8 +129,8 @@ def handle_new_reply(client: Client, new_reply: Tweet) -> None:
 
 def main():
     main_acct_details = main_acct.find_one({"_id": 0})
-
-    client = Client("en-US")
+    main_proxy = 'http://brd-customer-hl_d38b4176-zone-datacenter_proxy1:v29tsj0lras8@brd.superproxy.io:22225'
+    client = Client("en-US", main_proxy)
     client.login(
         auth_info_1=main_acct_details["main_bot_username"],
         auth_info_2=main_acct_details["main_bot_email"],
